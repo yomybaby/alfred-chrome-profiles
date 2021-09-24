@@ -14,8 +14,8 @@ def get_profiles(browser, path):
       with open(file) as f:
         data = json.load(f)
         name = data['profile']['name']
-        hd = name
-#        name = data['account_info'][0]['full_name'];
+#        hd = name
+        fullname = data['account_info'][0]['full_name'];
 #        hd = data['account_info'][0]['hd']
         profiles.append({
           "icon": {
@@ -23,8 +23,8 @@ def get_profiles(browser, path):
             "path": "{}/{}/Google Profile Picture.png".format(path,folder)
           },
           "arg": "{} {}".format(browser['name'], folder),
-          "subtitle": "Open Chrome using {} profile.".format(name.encode('utf-8')),
-          "title": hd,
+          "subtitle": "Open Chrome using {} profile.".format(fullname.encode('utf-8')),
+          "title": name,
         })
   return profiles
 
